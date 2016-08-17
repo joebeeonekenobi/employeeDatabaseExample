@@ -29,67 +29,84 @@ CREATE TABLE clockingData
 (
 	[cid] INT NOT NULL IDENTITY,
 	[eid] INT NOT NULL,
-    [isClockIn] BIT NULL,
-    [clockDate] DATETIME2 NULL,
-    PRIMARY KEY ([cid], [eid]),
+    [isClockIn] BIT NOT NULL,
+    [clockDate] DATE NOT NULL,
+    [clockTime] TIME(0) NOT NULL,
+    PRIMARY KEY ([eid], [clockDate], isClockIn),
     FOREIGN KEY ([eid]) REFERENCES [employee]([eid]),
 );
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'True', '2016-08-12 09:01:55');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'True', '2016-08-12 12:00:21');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'True', '2016-08-12 10:00:30');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'True', '2016-08-12 13:02:59');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'False', '2016-08-12 14:00:45');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'False', '2016-08-12 17:00:11');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'False', '2016-08-12 18:33:19');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'False', '2016-08-12 19:12:00');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'True', '2016-08-12', '09:01:55');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'True', '2016-08-12', '12:00:21');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'True', '2016-08-12', '10:00:30');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'True', '2016-08-12', '13:02:59');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'False', '2016-08-12', '14:00:45');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'False', '2016-08-12', '17:00:11');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'False', '2016-08-12', '18:33:19');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'False', '2016-08-12', '19:12:00');
 
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'True', '2016-08-13 08:59:22');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'True', '2016-08-13 11:59:53');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'True', '2016-08-13 10:57:20');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'True', '2016-08-13 13:28:01');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'False', '2016-08-13 14:11:41');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'False', '2016-08-13 17:11:10');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'False', '2016-08-13 18:11:15');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'False', '2016-08-13 19:46:55');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'True', '2016-08-13', '08:59:22');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'True', '2016-08-13', '11:59:53');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'True', '2016-08-13', '10:57:20');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'True', '2016-08-13', '13:28:01');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'False', '2016-08-13', '14:11:41');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'False', '2016-08-13', '17:11:10');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'False', '2016-08-13', '18:11:15');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'False', '2016-08-13', '19:46:55');
 
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'True', '2016-08-14 08:55:57');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'True', '2016-08-14 11:55:05');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'True', '2016-08-14 10:40:02');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'True', '2016-08-14 13:55:19');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'False', '2016-08-14 13:42:08');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'False', '2016-08-14 16:42:47');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'False', '2016-08-14 18:01:11');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'False', '2016-08-14 19:42:48');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'True', '2016-08-14', '08:55:57');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'True', '2016-08-14', '11:55:05');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'True', '2016-08-14', '10:40:02');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'True', '2016-08-14', '13:55:19');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'False', '2016-08-14', '13:42:08');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'False', '2016-08-14', '16:42:47');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'False', '2016-08-14', '18:01:11');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'False', '2016-08-14', '19:42:48');
 
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'True', '2016-08-15 09:04:21');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'True', '2016-08-15 12:04:53');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'True', '2016-08-15 10:16:45');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'True', '2016-08-15 13:04:53');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'False', '2016-08-15 14:22:28');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'False', '2016-08-15 16:22:12');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'False', '2016-08-15 18:00:10');
-INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'False', '2016-08-15 19:22:42');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'True', '2016-08-15', '09:04:21');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'True', '2016-08-15', '12:04:53');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'True', '2016-08-15', '10:16:45');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'True', '2016-08-15', '13:04:53');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '0R4K96OY'), 'False', '2016-08-15', '14:22:28');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '4G87TLM2'), 'False', '2016-08-15', '16:22:12');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = '87ER4TN9'), 'False', '2016-08-15', '18:00:10');
+INSERT INTO [clockingData] ([eid], [isClockIn], [clockDate], [clockTime]) VALUES ((select [eid] from [employee] where eNumber = 'UUR863G1'), 'False', '2016-08-15', '19:22:42');
 
 CREATE VIEW [clockingInData] AS 
-select 
-	[clockingData].[clockDate] AS [dateTime], 
-	[employee].[firstName] AS [firstName], 
-	[employee].[lastName] AS [lastName], 
+SELECT 
 	[employee].[eid] AS [eid],
 	[employee].[eNumber] AS [eNumber]
+	[employee].[firstName] AS [firstName], 
+	[employee].[lastName] AS [lastName], 
+	[clockingData].[clockDate] AS [date], 
+	[clockingData].[clockTime] AS [time], 
 FROM [employee] 
 JOIN [clockingData] 
 ON [employee].[eid] = [clockingData].[eid]
-Where [clockingData].[isClockIn] = 1;
+WHERE [clockingData].[isClockIn] = 1;
 
 CREATE VIEW [clockingOutData] AS 
-select 
-	[clockingData].[clockDate] AS [dateTime], 
-	[employee].[firstName] AS [firstName], 
-	[employee].[lastName] AS [lastName], 
+SELECT 
 	[employee].[eid] AS [eid],
 	[employee].[eNumber] AS [eNumber]
+	[clockingData].[clockDate] AS [date], 
+	[clockingData].[clockTime] AS [time], 
+	[employee].[firstName] AS [firstName], 
+	[employee].[lastName] AS [lastName], 
 FROM [employee] 
 JOIN [clockingData] 
 ON [employee].[eid] = [clockingData].[eid]
-Where [clockingData].[isClockIn] = 1;
+WHERE [clockingData].[isClockIn] = 0;
+
+CREATE VIEW [clockInspect] AS 
+SELECT
+	[clockingInData].[eid] AS [eid],
+	[clockingInData].[eNumber] AS [eNumber],
+	[clockingInData].[firstName] AS [firstName], 
+	[clockingInData].[lastName] AS [lastName], 
+	[clockingInData].[date] AS [date], 
+	[clockingInData].[time] AS [inTime], 
+	[clockingOutData].[time] AS [outTime],
+	DATEDIFF(MINUTE, [clockingInData].[time], [clockingOutData].[time]) AS minsSpent
+FROM [clockingInData] 
+JOIN [clockingOutData] 
+ON [clockingInData].[eid] = [clockingOutData].[eid] AND [clockingInData].[date] = [clockingOutData].[date] 
